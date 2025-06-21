@@ -9,7 +9,7 @@ const serviceAccount = JSON.parse(
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://esp8266voiceproject-default-rtdb.firebaseio.com"
+  databaseURL: "https://home-automation-6f6e0-default-rtdb.firebaseio.com/"
 });
 
 
