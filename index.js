@@ -3,11 +3,13 @@ const bodyParser = require('body-parser');
 const { dialogflow } = require('actions-on-google');
 const admin = require('firebase-admin');
 
-// Firebase Admin SDK initialization
+const serviceAccount = require('./serviceAccountKey.json');
+
 admin.initializeApp({
-  credential: admin.credential.applicationDefault(),
-  databaseURL: "https://your-project-id.firebaseio.com" // <-- replace this
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://esp8266voiceproject-default-rtdb.firebaseio.com"
 });
+
 
 const db = admin.database();
 const app = dialogflow({ debug: true });
