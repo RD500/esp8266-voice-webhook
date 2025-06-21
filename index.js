@@ -3,7 +3,9 @@ const bodyParser = require('body-parser');
 const { dialogflow } = require('actions-on-google');
 const admin = require('firebase-admin');
 
-const serviceAccount = require('./serviceAccountKey.json');
+const serviceAccount = JSON.parse(
+    Buffer.from(process.env.GOOGLE_CREDENTIALS, "base64").toString("utf-8")
+  );
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
